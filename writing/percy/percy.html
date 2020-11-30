@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+
+
+<style>
+
+    a{
+        text-decoration:none;
+        color:rgb(71, 132, 185);
+    }
+    body{
+        background-color:rgb(255, 255, 255)55);
+        margin:0;
+    }
+    article{
+        height:100vh;
+        width:34em;
+        display:flex;flex-direction: column;
+        text-align: center;
+        padding-right:8em;padding-left:8em;
+        overflow: scroll;
+        background-color: white;
+        box-shadow:5px 10px 10px rgba(1,1,1,0.1);
+        border-left:1px solid silver;
+    }
+    
+    #article_nav_container{
+        display:flex;
+    }
+    
+    .nav_container{
+        display:flex;
+        width:24em;
+        padding:4px;
+        flex-direction: column;
+    }
+    
+    .nav{
+        width:24em;
+        box-shadow:5px 10px 10px rgba(1,1,1,0.1);
+    }
+    .nav li{
+        text-decoration:none;
+        list-style: none;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color:rgb(68, 68, 68);
+        font-size:16px;
+        padding:0.4em;
+        padding-left:4em;
+        border-bottom:1px solid rgb(218, 218, 218);
+    }
+    
+    .nav li:hover{
+        background-color:rgb(232, 232, 232);
+    }
+    .nav ul{
+        padding:0;
+    }
+    
+    h1{
+        font-family:sans-serif;
+        font-size:40px;
+        color:rgb(0, 0, 0);
+        font-weight: 100;
+    }
+    
+    h2{
+        margin-top:2em;
+        font-family:sans-serif;
+        font-size:24px;
+        color:rgb(0, 0, 0);
+        font-weight:100;
+        width:100%;
+        border-bottom:1px solid rgb(90, 90, 90);
+        padding:6px;
+    }
+    
+    p, li{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        color:rgb(68, 68, 68);
+        line-height:1.6;
+        text-align:left;
+    }
+
+    ul li{
+        list-style: square;
+    }
+ 
+    img{
+        margin-bottom:2em;
+        align-self: center;
+    }
+    
+    
+    .step_n{
+        color:rgb(0, 0, 0);
+        font-weight: bold;
+        font-size:28px;
+        border-radius: 100%;
+        padding-right:12px;
+        padding-left:12px;
+        padding-top:6px;
+        padding-bottom:4px;
+        margin-right:1em;
+    }
+    
+    code{
+        color:rgb(0, 0, 0);
+        padding-top:2px;
+        padding-left:4px;
+        padding-right:3px;
+        padding-bottom:2px;
+        border-radius:2px;
+        font-size:16px;
+        border-top:1px solid rgb(140, 140, 140);
+        border-right:1px solid rgb(140, 140, 140);
+        border-bottom:1px solid rgb(0, 0, 0);
+        border-left:1px solid rgb(0, 0, 0);
+    }
+    
+    .key{
+        display:inline;
+        background-color:rgb(191, 191, 191);
+        color:rgb(0, 0, 0);
+        padding-left:6px;
+        padding-right:6px;
+        padding-top:2px;
+        border-radius: 2px;
+        font-size:14px;
+        border-top: 2px solid rgb(230, 230, 230);
+        border-bottom: 2px solid rgb(123, 123, 123);
+    }
+    
+    #logo{
+        width:5em;
+        height:7em;
+        background-image: url('../logo_dark.png');
+        background-size:cover;
+        align-self: center;
+        margin-top:1em;
+        margin-bottom: 1em;
+    }
+    
+    .c{
+        border:none;
+        color:silver;
+    }
+    
+    table{
+        border:1px solid silver;
+        border-collapse: collapse;
+        padding:6px;
+        font-family:sans-serif;
+        font-size:16px;
+        display:inline-table;
+        margin-right:1em;
+        margin-left:1em;
+        width:80%;
+    }
+    td{
+        border:1px solid silver;
+        padding:10px;
+        text-align:left;
+    }
+
+    th{
+        border:1px solid silver;
+        padding:10px;
+    }
+
+    .not_b{
+        font-weight: normal;
+    }
+    ol{
+        padding-bottom:2em;
+    }
+
+    ol li{
+        margin-top:24px;
+    }
+    .operator{
+        display:inline;
+        font-size:18px;
+        font-family: monospace;
+        text-align: center;
+    }
+
+    .exp{
+        font-size:14px;
+        display:inline;
+    }
+    </style>
+    
+<body> 
+    <head>
+       <title>
+           Percy the Perceptron
+       </title>
+    </head>
+<div id="article_nav_container">
+    <div class="nav_container">
+        <a href="../writing.html"id="logo"></a>
+        <ul class="nav">
+            <a href="percy.html"><li>Percy</li></a>
+            <a href="percy.html#prediction"><li>Percy makes a prediction</li></a>
+            <a href="percy.html#what_is_percy"><li>What is Percy?</li></a>
+            <a href="percy.html#math"><li>Percy but with math</li></a>
+            <a href="percy.html#bias"><li>Percy's bias makes him more objective</li></a>
+            <a href="percy.html#multiple_predictions"><li>Percy makes multiple predictions</li></a>
+            <a href="percy.html#limitation"><li>Percy's limitation</li></a>
+        </ul>
+        <ul class="nav">
+            <a href="percy.html#summary"><li>Summary</li></a>
+            <a href="percy.html#sources"><li>Sources</li></a>
+        </ul>
+    </div>
+    <article>
+        <h1>Percy the Perceptron</h1>
+        <p style="text-align:center;">
+            <em>
+                Knowledge prerequisites: algebra fundamentals, 
+                <a href="https://www.computerscience.gcse.guru/theory/logic-gates" >
+                    logic gates
+                </a>
+            </em>
+        </p>
+        <p style="text-align:center;margin:0;">
+            <em>
+                Outcome: Understand what a perceptron is and how it works 
+            </em>
+        </p>
+        <img src="percy.gif"style="width:40em;">
+        <p>
+            This is Percy. Percy receives information about an object and then makes a prediction:
+         </p>
+         <ul>
+            <li>If he thinks the object is a teapot, he says <b>1</b>.</li>
+            <li>If he thinks object is an apatasaurus, he says <b>0</b>.</li>
+         </ul>
+         
+         <p>
+             I have this object, and I'm not sure if it's a teapot or an apatasaurus.  
+             It's slightly heavy and it makes a loud noise.
+             Here are the measurements of the object:
+        </p>
+         <ul>
+             <li>mass = 2 kg</li>
+             <li>loudness = 65 dB </li>
+         </ul>
+         <p>
+            I'll give these measurements, or <b>inputs</b>, to Percy. 
+         </p>
+         <h2 id="prediction">Percy makes a prediction</h2>
+         <p>
+             Percy weighs the significance of each input to filter out unimportant information. 
+             Then he combines them to form a prediction.
+         </p>
+         <p>
+             I've labeled each part of Percy and described their role in his prediction process:
+         </p>
+         <img src="percy_labeled.gif"style="width:40em;">
+         <ol>
+             <li>
+                The <b>weights</b> modulate the strength of each input connection.
+                Small weight values throttle a connection, and large weight values amplify it.
+            </li>
+            <li>
+                The weighted inputs are combined into a <b>sum</b>.
+            </li>
+            <li>
+               If the sum is strong enough, the <b>activation</b>
+               outputs 1, otherwise it outputs 0.
+            </li>
+         </ol>
+         <p>
+             Percy says 1. That means he thinks the object is a teapot. I think he's correct.
+         </p>
+         <img src="teapot.png"style="width:10em;">
+         <h2 id="what_is_percy">What is Percy?</h2>
+         <p>
+            Percy is a type of <b>artificial neuron</b> called a <b>perceptron</b>, invented by Frank Rosenblatt in 1957. 
+         </p>
+         <p>
+            An artifical neuron is a mathematical model inspired by the functions of a biological neuron. 
+            It receives signals (inputs) and prioritizes their significance by weighting them. If the sum of the weighted signals exceeds a threshold, 
+            it either 'activates' (outputs 1) or doesn't (outputs 0). 
+         <p>
+            You may question the application of an invention whose legacy is
+            outputting a 0 or a 1 based on sparse information. Surely, us humans are 
+            much more logically equipped to distinguish objects. 
+         </p>
+         <p>
+            But much like Percy, our brains also receive inputs (more than two) and 
+            combine them to form blurry generalizations
+            about everything:
+         </p>
+         <p>
+             <em>
+            "...The brain is combining lots of sources of unreliable evidence, and so 
+            logic isn't such a good paradigm of what the brain's up to." (Hinton)
+            </em>
+         </p>
+        
+        <h2 id="math">Percy but with math</h2>
+        <p>
+            Now I'll delve into a more detailed explanation of how the perceptron works.
+        </p>
+        <p>
+            Here's a mathematical dissection of Percy (it's fine, he doesn't feel pain). Each part 
+            is denoted by a variable name:
+        </p>
+        <img src="neuron_math.png"style="width:30em;">
+        <ul>
+            <li><code>x<sub>1</sub></code>: <b>mass</b> input</li>
+            <li><code>x<sub>2</sub></code>: <b>loudness</b> input</li>
+            <li><code>w<sub>1</sub></code>: <b>weight</b> of the mass input</li>
+            <li><code>w<sub>2</sub></code>: <b>weight</b>  of the loudness input</li>
+            <li><code>z</code>: <b>sum</b> of the weighted inputs</li>
+            <li><code>a()</code>: <b>activation</b> function</li>
+        </ul>
+        <p>
+           I'll reduce this down to an equation:
+        </p>
+        <p class="operator">
+            z = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub>
+        </p>
+        <p class="operator">
+            prediction = a(z)
+        </p>
+        <p>
+           Observe again as Percy makes the same prediction he made in the last section. 
+           This time, we can see the values of his weights: 
+        </p>
+        <ul>
+            <li><code>w<sub>1</sub></code> = 0.5</li>
+            <li><code>w<sub>2</sub></code> = 0.2</li>
+        </ul>
+        <p>
+            <em>
+                Considering these weight values, which input (mass or loudness) does Percy favor more?
+            </em>
+        </p>
+        <p>Given <code>x<sub>1</sub></code> = 2 kg, and <code>x<sub>2</sub></code> = 65 dB:</p>
+        <p class="operator">z = 2 &times; 0.5 + 65 &times; 0.2</p>
+        <p class="operator">z = 1 + 13</p>
+        <p class="operator">z = 14</p>
+        <p>
+            The sum of the weighted inputs, <code>z = 14</code>, doesn't mean much when
+            classifying something. 
+            A value between [-&infin;, &infin;] is not very concise.
+        </p>
+        <p>
+            The <b>activation</b> function, <code>a()</code>, restricts the size of
+            <code>z</code> by squashing it between two consistent values, like [0, 1] or [-1, 1]. 
+            Percy is restricted to 0 or 1, so his activation is the <b>Heaviside step function</b>:
+        </p>
+        <img src="step_f.png"style="width:30em;">
+        <p class="operator">
+            If <code>z &gt; 0</code>, output <code>1</code>
+        </p>
+        <p class="operator">
+            Else if <code>z &le; 0</code>, output <code>0</code>
+        </p>
+        <p>
+            <code>z = 14</code> is more than 0. So, <code>a(z)</code> is 
+            1, or a teapot prediction:
+        </p>
+        <img src="step_f_input.png"style="width:30em;">
+        <p>
+            Evidently, Percy has an inclination towards teapots. All of his inputs are positive,
+            resulting in an output of 1.
+            But he can adjust his weights to tug <code>z</code> into 
+            the negative range:
+        </p>
+        <img src="step_f_weights.gif"style="width:35em;">
+        <p>
+            We can see here that emphasizing certain inputs over others can 
+            significantly alter a prediction. 
+        </p>
+        <h2 id="bias">Percy's bias makes him more objective</h2>
+        <p>
+            Weighting the inputs moves <code>z</code> around. But what about 
+            a supplemental parameter that moves the activation?
+        </p>
+        <p>
+            I'll give Percy a new input: a constant input of 1 with its own weight, <code>b</code>: 
+        </p>
+        <img src="neuron_math_b.png"style="width:30em;">
+        <p>
+            This new parameter, <code>b</code>, is the <b>bias</b>. It's added to the weighted inputs:
+        </p>
+        <p class="operator">
+            prediction = a( x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub> + b)
+        </p>
+        <p>
+            Now when Percy adjusts <code>b</code>, his activation 
+            shifts away from 0 and changes his sensitivity towards outputting 0 or 1:
+        </p>
+        <img src="step_f_b.gif"style="width:35em;">
+        <p>
+            A large bias makes him leap to the teapot prediction. A small bias makes him linger in the 
+            apatasaurus prediction until he's surmounted by evidence of the contrary.
+        </p>
+        <p>
+            You will see in the next section why this extra bit of precision is important. 
+        </p>
+        <h2 id="multiple_predictions">Percy makes multiple predictions</h2>
+        <p>
+            Percy doesn't configure his weights to classify one object, but to classify 
+            many objects at the same time. He <b>generalizes</b> to make new predictions.   
+        </p>
+        <p>
+            Here's a set of objects plotted onto a graph, where <code>x<sub>1</sub></code> is the x-axis and <code>x<sub>2</sub></code> is the y-axis:
+        </p>
+        <img src="plot.png"style="width:35em;">
+        <p>
+            Percy's predictive model, <code>a( x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub> + b)</code>, can be plotted
+            as a line that separates teapots and apatasauruses.
+        </p>
+        <p>
+            I'll rewrite it in <code>y = mx + b</code> form (ignoring the activation for now), 
+            where <code>x<sub>1</sub> = x</code> and <code>x<sub>2</sub> = y</code>:
+        </p>
+        <p class="operator">
+            w<sub>1</sub>x + w<sub>2</sub>y + b = 0
+        </p>
+        <p class="operator">
+            w<sub>2</sub>y = -w<sub>1</sub>x - b 
+        </p>
+        <p class="operator">
+            y = -(w<sub>1</sub>/w<sub>2</sub>)x - b/w<sub>2</sub>
+        </p>
+        <p>
+            And here it is plotted:
+        </p>
+        <img src="line.png"style="width:35em;">
+        <p>
+            This line is the <b>decision boundary</b>. Data on one side are teapots, and data on the other side are apatasauruses.
+            Roughly speaking.
+        </p>
+        <p>
+            Percy's generalizations emerge from: 
+        </p>
+        <ul>
+            <li>How his decision boundary fits the data, based on the configuration of his weights and bias</li>
+            <li>The data he's given</li>
+        </ul>
+        <p>
+            Percy is responsible for fitting his decision boundary. Us humans are responsible 
+            for giving him the correct data. 
+        </p>
+        <p>
+            How does Percy know how to set his weights and bias? He learns through <b>training</b>, but that's 
+            a topic for another article.
+        </p>
+        <h2 id="limitation">Percy's limitation</h2>
+        <p>
+            You may be suprised to know that Percy has limited applications.
+            He can only solve <b>linearly separable</b> problems. That is, data that can be 
+            easily separated into two distinct catagories with a straight line. 
+        </p>
+        <p>
+            The AND and OR logic problems are linearly separable:
+        </p>
+        <img src="or_and.png"style="width:40em;">
+        <p>
+            But despite his presistence, Percy can't solve <b>non-linear</b> problems. This includes 
+            the XOR problem, or datasets that requires curved decision boundaries:
+        </p>
+        <img src="xor.png"style="width:35em;">
+        <p>
+            Along with previous generations of artifical neurons, Percy inherited the family heirloom of disappointment. 
+            The perceptron's limitations compelled researchers in the 1960s to abandon artificial neurons until the 1980s. 
+        </p>
+        <p>
+            However, we now know that if we stack lots of artifical neurons into connected layers, 
+            we create a <b>neural network</b>. 
+         </p>
+         <img src="ann.gif"style="width:45em;">
+         <p>
+            Hundreds of fluctuating weights mixing predictions with other predictions can 
+            solve non-linear problems and recognize 
+            elaborate patterns beyond whether or not something is a teapot or an apatasaurus. 
+         </p>
+         <p>
+            Turns out more than one useless thing can be useful. 
+         </p>
+        <h2 id="summary">Summary</h2>
+        </p>
+        <ul>
+            <li style="margin-top:24px;">
+                Percy is a type of <b>artifical neuron</b> called a <b>perceptron</b>.
+            </li>
+            <li style="margin-top:24px;">
+               An artificial neuron receives any number of <b>inputs</b>, combines them into a <b>sum</b>, and then outputs a single prediction. 
+            </li>
+            <li style="margin-top:24px;">
+                The <b>weights</b> of an artifical neuron modulate the importance of its inputs
+                by amplifying or throttling their connections.
+            </li>
+            <li style="margin-top:24px;">
+                The <b>bias</b> is an input of 1 with its own weight. It nudges the activation left or right 
+                to change Percy's sensitivity towards outputting either 0 or 1. 
+            </li>
+            <li style="margin-top:24px;">
+                The <b>activation</b> squashes the weighted inputs between two numbers, such as 1 or 0.    
+            </li>
+            <li style="margin-top:24px;">
+                Percy's weights, bias, and inputs form a <b>decision boundary</b> that separates teapots and apatasauruses.
+            </li>
+            <li style="margin-top:24px;">
+                Percy can only solve <b>linearly separable</b> problems, but not <b>non-linear</b> problems.
+            </li>
+            <li style="margin-top:24px;">
+                Artificial neurons can be stacked into interconnected layers to form a <b>neural network</b>
+                that can solve <b>non-linear</b> problems.
+            </li>
+            <li style="margin-top:24px;">
+                A <b>teapot</b> is a culinary instrument used for holding boiled water and pouring it. An <b>apatasaurus</b> is not. 
+            </li>
+        </ul>
+       <h2 id="sources">Sources</h2>
+       <p style="text-align:center;">
+        <em>
+            Hinton, G. 2013. Lecture 1c Some simple models of neurons 
+            https://www.youtube.com/watch?v=VA9niXgGOsQ&list=PLLssT5z_DsK_gyrQ_biidwvPYCRNGI3iv&index=3&t=119s
+        </em>
+        </p>
+        <p style="text-align:center;">
+            <em>
+                Nielsen, M. (2019, Dec). Neural Networks and Deep Learning. Retrieved November 20, 2020, 
+                from http://neuralnetworksanddeeplearning.com/chap1.html
+            </em>
+        </p>
+        <p style="text-align:center;">
+            <em>
+        Patterson, J., &amp; Gibson, A. (2017). Deep learning: A practitioner's approach. Beijing: O'Reilly Media.
+            </em>
+        </p>
+        <p style="text-align:center;">
+            <em>
+             Paul, M. (2018). Boundaries, hyperplanes, and slopes. 
+             University of Colorado Boulder. doi:cmci.colorado.edu/classes/INFO-4604/files/notes_svm
+            </em>
+        </p>
+
+
+    </article>
+
+</div>
+
+</body>
+</html>
