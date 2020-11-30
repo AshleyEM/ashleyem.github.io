@@ -1,0 +1,78 @@
+body{
+    margin:0;
+    background-image:url('clocks1.png');
+    background-size: 30%;
+    padding-bottom: 20em;
+}
+
+a{
+    text-decoration: none;
+    color:silver;
+    font-weight: 100;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button{
+    height:2em;
+    width:100%;
+    font-size: 18px;
+    text-align: center;
+    line-height: 2;
+    border-bottom:1px solid rgb(124, 124, 124);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button:hover{
+    background-color: rgb(60, 60, 60);
+}
+.navbar{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.text{
+    color:silver;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding:2em;
+    line-height:1.2;
+}
+
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:24em;
+    height:20em;
+    background-color: rgb(45, 45, 45);
+    margin: auto;
+    margin-top:1em;
+    border:1px solid rgb(124, 124, 124);
+}
+
+.logo{
+    background-image: url("logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height:8em;
+    width:5em;
+    margin:auto;
+    margin-top:0.6em;
+}
+
+.nameplaque{
+    background-color: rgb(45, 45, 45);
+    height:8em;
+    width: 8em;
+    margin:auto;
+    margin-top:8em;
+    border: 1px solid  rgb(124, 124, 124);
+    box-shadow:5px 10px 10px rgba(10,10,10,0.5);
+    color:silver;
+}
+
