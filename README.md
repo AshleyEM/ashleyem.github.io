@@ -1,3 +1,3 @@
 # ashleyem.github.io
 
-Repository for my portfoio website. Still WIP. 
+Repository for my portfolio website. Still WIP. 
