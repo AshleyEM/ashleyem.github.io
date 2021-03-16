@@ -1,0 +1,117 @@
+body{
+    margin:0;
+    background-color:rgb(63, 63, 63);
+    background-size: 30%;
+}
+
+a{
+    text-decoration:none;
+    color:black;
+}
+
+#sub{
+    font-family: monospace;
+    color:silver;
+    font-size:14px;
+}
+
+h1{
+    font-weight: 100;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color:silver;
+    margin:0;
+}
+
+#logo{
+    width:5em;height:8em;
+    background-image: url('../logo.png');
+    background-size:cover;
+    opacity: 0.6;
+}
+
+#logo:hover{
+    opacity: 1;
+}
+.preview{
+    width:10em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color:silver;
+}
+.article{
+    display:flex;
+    flex-direction:row;
+    height:5em;width:60em;
+    box-shadow:5px 10px 10px rgba(1,1,1,0.4);
+    background-color:rgb(36, 36, 36);
+    border-bottom:1px solid rgb(94,94,94);
+}
+
+.article:hover{
+    background-color:rgb(58, 58, 58);
+}
+
+.legend_item{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    color:silver;
+    padding-right:4em;
+}
+.article_title{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    color:silver;
+    font-size:18px;
+    padding-left:2em;
+    width:70%;
+    align-self: center;
+}
+.genre{
+    width:8em;
+    height:2em;
+    color:rgb(113, 113, 113);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    align-self: center;
+    border-left:1px solid rgb(99, 99, 99);
+    padding-left:1em;
+}
+
+#legend{
+    display:flex;
+    flex-direction: row;
+    width:60em;
+    padding-bottom: 2em;
+}
+
+.nameplaque{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 16em; height: 16em;
+    background-color:rgb(36, 36, 36);
+    margin:auto;
+    border:1px solid rgb(94, 94, 94);
+    padding:1em;
+    box-shadow:5px 10px 10px rgba(1,1,1,0.4);
+}
+
+.page{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    margin-top:2em;
+}
+
+.column{
+    display:flex;
+    flex-direction: column;
+    padding:1em;
+    width:50em;
+    margin-top:4em;
+    border:rgb(94, 94, 94) 1px solid;
+}
+
+

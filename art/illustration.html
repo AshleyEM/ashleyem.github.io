@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style_art.css">
+<title>
+    Ashley McLemore: Graphics
+</title>
+</head>
+
+<body>
+    <div class="nameplaque">
+        <h1>Ashley McLemore</h1>
+        <p id="sub">animation + illustration</p>
+        <a href="../index.html"id="logo"></a>
+    </div>
+</div>
+
+<div class="page">
+    <div class="navbar">
+        <a href="animation.html" class="button">Animation</a>
+        <a href="" class="button  selected">Illustration</a>
+    </div>
+
+    <!---HIDDEN-->
+    <div id="media_container">
+        <span id="x">&times;</span>
+        <img id="media"></img>
+        <div id="info"class="text"></div>
+    </div>
+
+    <div id="gallery">
+
+
+    </div>
+</div>
+
+<script>
+
+//hide gallery icons, show clicked media
+function view(source, txt){ // (media source, description text)
+
+    var media = document.getElementById("media");
+    var media_container = document.getElementById("media_container");
+    var gallery = document.getElementById("gallery");
+    var info = document.getElementById("info");
+
+    gallery.style.display = 'none'; // hide gallery
+    media_container.style.display = 'flex'; // show media container with info etc.
+    media.src = source;  // set media source
+    info.textContent = txt; // description of media
+}
+
+//close media container, show gallery icons again
+function kill(){
+    document.getElementById("media_container").style.display = 'none';
+    document.getElementById('gallery').style.display = 'flex';
+}
+
+
+// close media container when 'x' is clicked
+document.getElementById('x').onclick = function(){kill()};
+</script>
+
+</body>
+</html>
